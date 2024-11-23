@@ -1,0 +1,64 @@
+/* Estilos globais */
+* {
+  margin: 0; /* Remove as margens padrão */
+  padding: 0; /* Remove os preenchimentos padrão */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos no cálculo do tamanho total */
+}
+
+/* Estilo geral do corpo da página */
+body {
+  background-image: url('../assets/images/background.png'); /* Fundo com imagem personalizada */
+  background-size: cover; /* Faz o fundo ocupar todo o espaço disponível */
+  background-position: center; /* Centraliza a imagem de fundo */
+  background-repeat: no-repeat; /* Evita repetição da imagem de fundo */
+  height: 100vh; /* Faz o corpo ocupar 100% da altura da janela */
+  font-family: Arial, sans-serif; /* Define a fonte padrão do corpo */
+}
+
+/* Contêiner principal que organiza os elementos na tela */
+.container {
+  display: flex; /* Usa flexbox para organizar os filhos (sidebar e calcbox) */
+  justify-content: space-between; /* Espaço igual entre os elementos */
+  align-items: center; /* Centraliza verticalmente os elementos filhos */
+  height: 100%; /* Altura igual à altura da tela */
+  padding: 0 20px; /* Espaçamento horizontal opcional */
+}
+
+/* Estilo da Sidebar (painel esquerdo) */
+.sidebar {
+  width: 229px; /* Largura fixa */
+  height: 679px; /* Altura fixa */
+  background-image: url('../assets/images/menubackground.png'); /* Fundo personalizado */
+  background-size: cover; /* Ajusta o fundo ao tamanho da sidebar */
+  background-position: center; /* Centraliza o fundo */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
+  margin-left: 55px; /* Espaçamento lateral esquerdo */
+  margin-top: 208px; /* Centralização vertical usando margem superior */
+  margin-bottom: 137px; /* Centralização vertical usando margem inferior */
+}
+
+/* Estilo da caixa de cálculo (painel direito) */
+.calcbox {
+  width: 257px; /* Largura fixa */
+  height: 325px; /* Altura fixa */
+  background-image: url('../assets/images/calcbackground.png'); /* Fundo personalizado */
+  background-size: cover; /* Ajusta o fundo ao tamanho da caixa */
+  background-position: center; /* Centraliza o fundo */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
+  margin-right: 66px; /* Espaçamento lateral direito */
+  margin-top: 443px; /* Centralização vertical usando margem superior */
+  margin-bottom: 256px; /* Centralização vertical usando margem inferior */
+}
+
+/* Barra decorativa no topo da página */
+.header-bar {
+  position: absolute; /* Barra posicionada em relação ao topo da página */
+  width: 1648px; /* Largura fixa */
+  height: 60px; /* Altura fixa */
+  background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%); /* Gradiente decorativo */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Adiciona sombra à barra */
+  filter: blur(2px); /* Aplica um leve desfoque na barra */
+  z-index: 1; /* Garante que a barra fique atrás de outros elementos */
+  margin-top: 84px; /* Ajusta a posição vertical */
+  margin-bottom: 880px; /* Garante espaçamento inferior */
+}
