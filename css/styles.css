@@ -1,18 +1,18 @@
 /* Estilos globais */
 * {
-  margin: 0; /* Remove as margens padrão */
-  padding: 0; /* Remove os preenchimentos padrão */
-  box-sizing: border-box; /* Inclui bordas e preenchimentos no cálculo do tamanho total */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Estilo geral do corpo da página */
 body {
-  background-image: url('../assets/images/background.png'); /* Fundo com imagem personalizada */
-  background-size: cover; /* Faz o fundo ocupar todo o espaço disponível */
-  background-position: center; /* Centraliza a imagem de fundo */
-  background-repeat: no-repeat; /* Evita repetição da imagem de fundo */
-  height: 100vh; /* Faz o corpo ocupar 100% da altura da janela */
-  font-family: Arial, sans-serif; /* Define a fonte padrão do corpo */
+  background-image: url('../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 /* Contêiner principal que organiza os elementos na tela */
@@ -57,6 +57,17 @@ body {
   margin: 10px 20px;
 }
 
+/* Estilo dos títulos "Nutrição" e "Saúde" */
+.menu-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 /* Estilo da lista de navegação */
 .menu {
   list-style: none;
@@ -66,6 +77,7 @@ body {
 
 .menu li {
   margin-bottom: 10px;
+  margin-left: 30px; /* Move os itens do menu para a direita */
 }
 
 .menu a {
@@ -84,29 +96,117 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-
 /* Estilo da caixa de cálculo (painel direito) */
 .calcbox {
-  width: 257px; /* Largura fixa */
+  width: 375px; /* Largura fixa */
   height: 325px; /* Altura fixa */
   background-image: url('../assets/images/calcbackground.png'); /* Fundo personalizado */
   background-size: cover; /* Ajusta o fundo ao tamanho da caixa */
   background-position: center; /* Centraliza o fundo */
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
-  margin-right: 66px; /* Espaçamento lateral direito */
+  margin-right: 30px; /* Espaçamento lateral direito */
   margin-top: 443px; /* Centralização vertical usando margem superior */
   margin-bottom: 256px; /* Centralização vertical usando margem inferior */
 }
 
 /* Barra decorativa no topo da página */
 .header-bar {
-  position: absolute; /* Barra posicionada em relação ao topo da página */
-  width: 1648px; /* Largura fixa */
-  height: 60px; /* Altura fixa */
-  background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%); /* Gradiente decorativo */
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Adiciona sombra à barra */
-  filter: blur(2px); /* Aplica um leve desfoque na barra */
-  z-index: 1; /* Garante que a barra fique atrás de outros elementos */
-  margin-top: 84px; /* Ajusta a posição vertical */
-  margin-bottom: 880px; /* Garante espaçamento inferior */
+  position: absolute;
+  width: 1440px;
+  height: 60px;
+  background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 0; /* Coloca a barra atrás do conteúdo */
+  margin-top: 84px;
+  margin-bottom: 880px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 30px;
+}
+
+/* Estilo para o container de texto */
+.text-container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Estilo dos blocos de texto */
+.text-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Garante que o bloco ocupe todo o espaço disponível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Estilo dos parágrafos */
+.text-block p {
+  font-family: Arial, sans-serif; /* Define a fonte */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
+  color: #000; /* Cor do texto */
+  width: 414px; /* Largura fixa */
+  height: 89px; /* Altura fixa */
+  display: flex; /* Para centralizar texto verticalmente */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  text-align: center; /* Justifica o texto */
+  margin: 0; /* Remove margens externas */
+}
+
+/* Estilo das imagens */
+.text-image {
+  width: 135px; /* Largura fixa */
+  height: 133px; /* Altura fixa */
+  margin-right: 15px; /* Espaçamento para imagens à esquerda */
+  margin-left: 15px; /* Espaçamento para imagens à direita */
+}
+
+/* Alinha as imagens à esquerda */
+.text-image.left {
+  order: 0;
+  margin-right: 77px;
+}
+
+/* Alinha as imagens à direita */
+.text-image.right {
+  order: 1;
+  margin-right: 0;
+  margin-left: 80px;
+}
+
+/* Estilo das linhas divisórias */
+.text-divider {
+  border: none;
+  width: 717px;
+  height: 2px;
+  background-color: #000; /* Cor preta */
+  margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+@font-face {
+  font-family: 'HolenVintage';
+  src: url('../assets/fonts/HolenVintage.otf') format('truetype');
+}
+
+
+/* Estilo do título na header-bar */
+.title {
+  width: 369px;
+  height: 78px;
+  font-family: 'HolenVintage.otf'; /* Fonte personalizada */
+  font-size: 85px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: #78b652;
+  text-shadow: 4px 4px 9px rgba(0, 0, 0, 1); /* Sombra externa */
+  font-style: italic;
+  margin-left: 106px;
+  margin-bottom: 55px;
 }

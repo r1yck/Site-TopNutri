@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,69 @@
   <!-- Link para a folha de estilos principal -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <!-- Barra decorativa no topo da página -->
-  <div class="header-bar"></div>
-  
+  <div class="header-bar">
+    <div class="title">TopNutri</div> <!-- Título adicionado -->
+  </div>
+
   <!-- Contêiner principal que agrupa os elementos centrais -->
   <div class="container">
     <!-- Sidebar (menu lateral esquerdo) -->
     <div class="sidebar">
       <h1 class="sidebar-title">Home</h1>
       <hr class="divider">
+      
+      <h2 class="menu-title">Nutrição</h2>
       <ul class="menu">
-        <li><a href="#nutricao">Nutrição</a></li>
-        <li><a href="#receitas">Receitas</a></li>
+        <li><a href="#nutricao">Receitas</a></li>
         <li><a href="#dicas">Dicas</a></li>
         <li><a href="#noticias">Notícias</a></li>
       </ul>
+      
       <hr class="divider">
+      
+      <h2 class="menu-title">Saúde</h2>
       <ul class="menu">
-        <li><a href="#saude">Saúde</a></li>
         <li><a href="#rotina">Rotina Saudável</a></li>
         <li><a href="#exercicios">Exercícios</a></li>
       </ul>
     </div>
     
+    <!-- Adicione os parágrafos com imagens e separadores -->
+    <div class="text-container">
+      <!-- Primeiro parágrafo com imagem à esquerda -->
+      <div class="text-block">
+        <img src="assets/images/comida.jpg" alt="Imagem 1" class="text-image left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+          facilisis.</p>
+      </div>
+      <hr class="text-divider">
+
+      <!-- Segundo parágrafo com imagem à direita -->
+      <div class="text-block">
+        <img src="assets/images/comida.jpg" alt="Imagem 2" class="text-image right">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+          facilisis.</p>
+      </div>
+      <hr class="text-divider">
+
+      <!-- Terceiro parágrafo com imagem à esquerda -->
+      <div class="text-block">
+        <img src="assets/images/comida.jpg" alt="Imagem 3" class="text-image left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+          facilisis.</p>
+      </div>
+    </div>
+
+
     <!-- Caixa de cálculo IMC -->
     <div class="calcbox"></div>
   </div>
 </body>
+
 </html>
