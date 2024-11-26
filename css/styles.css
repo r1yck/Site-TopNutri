@@ -306,7 +306,7 @@ body {
   max-width: 800px; /* Largura máxima */
   height: auto;
   padding: 20px 30px; /* Espaçamento interno */
-  background-color: #8ce3d9; /* Cor de fundo */
+  background-color: rgba(140, 227, 217, 0.7); /* Cor de fundo com transparência */
   border-radius: 50%; /* Forma de elipse */
   box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* Sombra branca borrada */
   text-align: center; /* Centraliza o texto */
@@ -316,3 +316,4 @@ body {
   color: #000; /* Cor do texto */
   line-height: 1.5; /* Altura da linha */
 }
+
