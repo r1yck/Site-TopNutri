@@ -109,6 +109,49 @@ body {
   margin-bottom: 256px; /* Centralização vertical usando margem inferior */
 }
 
+.calcbox h2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 22px;
+}
+
+.calcbox form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.calcbox label {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.calcbox input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+}
+
+.calcbox button {
+  padding: 10px 20px;
+  background-color: #295d60;
+  color: #fff;
+  border: 2px solid #3c8e93;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.calcbox button:hover {
+  background-color: #00bfbf;
+  color: white;
+}
+
 /* Barra decorativa no topo da página */
 .header-bar {
   position: absolute;

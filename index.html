@@ -69,8 +69,33 @@
 
 
     <!-- Caixa de cálculo IMC -->
-    <div class="calcbox"></div>
+    <div class="calcbox">
+      <h2>CALCULADORA <br>I.M.C.</h2>
+      <form>
+        <label for="altura">ALTURA</label>
+        <input type="text" id="altura" name="altura" placeholder="Ex: 1.75">
+        <label for="peso">PESO</label>
+        <input type="text" id="peso" name="peso" placeholder="Ex: 70">
+        <button type="button" onclick="calcularIMC()">CALCULAR</button>
+      </form>
+    </div>
+    
   </div>
+  
+<script>
+  function calcularIMC() {
+    const altura = parseFloat(document.getElementById('altura').value);
+    const peso = parseFloat(document.getElementById('peso').value);
+    if (altura > 0 && peso > 0) {
+      const imc = (peso / (altura * altura)).toFixed(2);
+      alert(`Seu IMC é ${imc}`);
+    } else {
+      alert('Por favor, insira valores válidos.');
+    }
+  }
+</script>
+
+
 </body>
 
 </html>
