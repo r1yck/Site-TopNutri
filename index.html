@@ -21,23 +21,23 @@
     <div class="sidebar">
       <h1 class="sidebar-title">Home</h1>
       <hr class="divider">
-      
+
       <h2 class="menu-title">Nutrição</h2>
       <ul class="menu">
         <li><a href="#nutricao">Receitas</a></li>
         <li><a href="#dicas">Dicas</a></li>
         <li><a href="#noticias">Notícias</a></li>
       </ul>
-      
+
       <hr class="divider">
-      
+
       <h2 class="menu-title">Saúde</h2>
       <ul class="menu">
         <li><a href="#rotina">Rotina Saudável</a></li>
         <li><a href="#exercicios">Exercícios</a></li>
       </ul>
     </div>
-    
+
     <!-- Adicione os parágrafos com imagens e separadores -->
     <div class="text-container">
       <!-- Primeiro parágrafo com imagem à esquerda -->
@@ -79,21 +79,32 @@
         <button type="button" onclick="calcularIMC()">CALCULAR</button>
       </form>
     </div>
-    
+
+    <!-- Tela explicativa sobre shakes -->
+    <div class="shakes-info" filter="blur(2px)";>
+      <p>
+        O uso de <strong>shakes para o emagrecimento</strong> é um assunto <em>controverso</em>.
+        Embora ajudem no processo de perda de peso, essas bebidas não são boas fontes nutricionais.
+        Nesse sentido, é importante saber como fazer uso dos shakes de maneira saudável e sem oferecer prejuízos ao
+        corpo.
+      </p>
+    </div>
+
+
   </div>
-  
-<script>
-  function calcularIMC() {
-    const altura = parseFloat(document.getElementById('altura').value);
-    const peso = parseFloat(document.getElementById('peso').value);
-    if (altura > 0 && peso > 0) {
-      const imc = (peso / (altura * altura)).toFixed(2);
-      alert(`Seu IMC é ${imc}`);
-    } else {
-      alert('Por favor, insira valores válidos.');
+
+  <script>
+    function calcularIMC() {
+      const altura = parseFloat(document.getElementById('altura').value);
+      const peso = parseFloat(document.getElementById('peso').value);
+      if (altura > 0 && peso > 0) {
+        const imc = (peso / (altura * altura)).toFixed(2);
+        alert(`Seu IMC é ${imc}`);
+      } else {
+        alert('Por favor, insira valores válidos.');
+      }
     }
-  }
-</script>
+  </script>
 
 
 </body>
