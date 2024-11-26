@@ -295,3 +295,24 @@ body {
   border-radius: 8px; /* Bordas arredondadas para o texto */
   text-align: center;
 }
+
+/* Estilo para a elipse com o texto */
+.nutrition-message {
+  position: absolute;
+  bottom: 30px; /* Distância da parte inferior */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  width: 80%; /* Largura relativa à página */
+  max-width: 800px; /* Largura máxima */
+  height: auto;
+  padding: 20px 30px; /* Espaçamento interno */
+  background-color: #8ce3d9; /* Cor de fundo */
+  border-radius: 50%; /* Forma de elipse */
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* Sombra branca borrada */
+  text-align: center; /* Centraliza o texto */
+  font-family: Arial, sans-serif; /* Define a fonte */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  color: #000; /* Cor do texto */
+  line-height: 1.5; /* Altura da linha */
+}
