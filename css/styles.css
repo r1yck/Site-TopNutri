@@ -24,19 +24,6 @@ body {
   padding: 0 20px; /* Espaçamento horizontal opcional */
 }
 
-/* Estilo da Sidebar (painel esquerdo) */
-.sidebar {
-  width: 229px; /* Largura fixa */
-  height: 679px; /* Altura fixa */
-  background-image: url('../assets/images/menubackground.png'); /* Fundo personalizado */
-  background-size: cover; /* Ajusta o fundo ao tamanho da sidebar */
-  background-position: center; /* Centraliza o fundo */
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
-  margin-left: 55px; /* Espaçamento lateral esquerdo */
-  margin-top: 208px; /* Centralização vertical usando margem superior */
-  margin-bottom: 137px; /* Centralização vertical usando margem inferior */
-}
-
 /* Estilo do título na Sidebar */
 .sidebar-title {
   font-size: 29.92px;
@@ -94,6 +81,44 @@ body {
 /* Hover nos links */
 .menu a:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo da Sidebar (painel esquerdo) */
+.sidebar {
+  width: 229px; /* Largura fixa */
+  height: 679px; /* Altura fixa */
+  background-image: url('../assets/images/menubackground.png'); /* Fundo personalizado */
+  background-size: cover; /* Ajusta o fundo ao tamanho da sidebar */
+  background-position: center; /* Centraliza o fundo */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
+  margin-left: 55px; /* Espaçamento lateral esquerdo */
+  margin-top: 208px; /* Centralização vertical usando margem superior */
+  margin-bottom: 137px; /* Centralização vertical usando margem inferior */
+  position: relative; /* Torna a sidebar o contêiner de referência para a logo */
+}
+
+/* Estilo da logo na sidebar */
+.sidebar-logo {
+  position: absolute; /* Posiciona a logo de forma absoluta dentro da sidebar */
+  bottom: 20px; /* Distância da parte inferior da sidebar */
+  right: 20px;  /* Distância da parte direita da sidebar */
+  width: 52px; /* Largura da logo */
+  height: 52px; /* Altura proporcional */
+}
+
+.sidebar-logo img {
+  width: 100%; /* Faz a logo ocupar 100% do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estilo do texto "@INFOTEC" na sidebar */
+.sidebar-info-text {
+  position: absolute; /* Posiciona o texto de forma absoluta dentro da sidebar */
+  bottom: 20px; /* Distância da parte inferior da sidebar */
+  left: 10px; /* Distância da parte esquerda da sidebar */
+  font-size: 14px; /* Tamanho da fonte */
+  color: #000; /* Cor preta */
+  font-weight: bold; /* Negrito */
 }
 
 /* Estilo da caixa de cálculo (painel direito) */
