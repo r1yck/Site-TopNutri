@@ -2,116 +2,317 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TopNutri</title>
-  <!-- Link para a folha de estilos principal -->
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>TopNutri</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
-  <!-- Barra decorativa no topo da página -->
-  <div class="header-bar">
-    <div class="title"><img src="assets/images/logo.png" alt="Logo" class="logo"></div> <!-- Título adicionado -->
-  </div>
+<body x-data="{ conteudo :  'receitas' }">
+    <!-- Barra decorativa no topo da página -->
+    <div class="header-bar">
+        <div class="title"><img src="assets/images/logo.png" alt="Logo" class="logo"></div> <!-- Título adicionado -->
+    </div>
+    <div class="container">
 
-  
-  <!-- Contêiner principal que agrupa os elementos centrais -->
-  <div class="container">
-    <!-- Sidebar (menu lateral esquerdo) -->
-    <div class="sidebar">
-      <h1 class="sidebar-title">Home</h1>
-      <hr class="divider">
+        <!-- Sidebar (menu lateral esquerdo) -->
+        <button class="menu-btn" onclick="toggleSidebar()">☰ Menu</button>
+        <div class="sidebar">
+            <h1 class="sidebar-title">Home</h1>
+            <hr class="divider">
 
-      <h2 class="menu-title">Nutrição</h2>
+            <h2 class="menu-title">Nutrição</h2>
       <ul class="menu">
-        <li><a href="#nutricao">Receitas</a></li>
-        <li><a href="#dicas">Dicas</a></li>
-        <li><a href="#noticias">Notícias</a></li>
+        <li><button onclick="toggleSidebar()" @click="conteudo = 'receitas'" >Receitas</button></li>
+        <li><button onclick="toggleSidebar()" @click="conteudo = 'dicas'">Dicas</button></li>
+        <li><button onclick="toggleSidebar()" @click="conteudo = 'noticias'">Notícias</button></li>
       </ul>
 
       <hr class="divider">
 
       <h2 class="menu-title">Saúde</h2>
       <ul class="menu">
-        <li><a href="#rotina">Rotina Saudável</a></li>
-        <li><a href="#exercicios">Exercícios</a></li>
+        <li><button onclick="toggleSidebar()" @click="conteudo = 'rotina'">Rotina Saudável</button></li>
+        <li><button onclick="toggleSidebar()" @click="conteudo = 'execicios'">Exercícios</button></li>
       </ul>
-      <!-- Logo no canto inferior direito -->
-      <div class="sidebar-logo">
-        <img src="assets/images/logo-dutra.png" alt="Logo Dutra">
-      </div>
+        </div>
 
-      <!-- Texto "@INFOTEC" no canto inferior esquerdo -->
-      <div class="sidebar-info-text">
-        @INFOTEC
+        <div class="main">
+            <!-- Adicione os parágrafos com imagens e separadores -->
+            <div class="text-container">
+                <!-- Adicione os parágrafos com imagens e separadores -->
+    <template x-if="conteudo === 'receitas'">
+        <div class="section">
+            <h2 class="section-title">Receitas</h2>
+            <div class="recipes">
+              <div class="recipe-item" @click="window.location='https://www.tudogostoso.com.br/receita/55148-bife-de-casca-de-banana-a-milanesa.html'">
+                <img src="assets/images/bife.png" alt="Bife de casca de banana" class="recipe-img">
+                <h3 class="recipe-title">Bife de Casca de Banana</h3>
+                <p class="recipe-description">Uma opção vegana e sustentável, perfeita para acompanhar saladas ou arroz.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://www.tudogostoso.com.br/receita/80686-massa-de-coxinha-facil-da-andriele.html'">
+                <img src="assets/images/massa.png" alt="Coxinha vegana" class="recipe-img">
+                <h3 class="recipe-title">Coxinha Vegana</h3>
+                <p class="recipe-description">Uma coxinha feita sem carne, com sabor irresistível e crocância perfeita.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://www.tudogostoso.com.br/receita/110449-esfiha-aberta-tipo-habib-s.html'">
+                <img src="assets/images/esfirra.png" alt="Esfirra aberta" class="recipe-img">
+                <h3 class="recipe-title">Esfirra Aberta</h3>
+                <p class="recipe-description">Uma receita prática e deliciosa com recheio suculento e massa macia.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://receitas.band.uol.com.br/receita/bauru-de-forno-band-receitas-id-3598'">
+                <img src="assets/images/bauru.png" alt="Bauru de Forno" class="recipe-img">
+                <h3 class="recipe-title">Bauru de Forno</h3>
+                <p class="recipe-description">Uma versão prática e deliciosa do tradicional Bauru, feito no forno com camadas de pão, queijo, presunto e tomate.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://receitas.globo.com/tipos-de-prato/paes-e-salgados/empadao-de-frango-dos-deuses-52181a194d3885653000004c.ghtml'">
+                <img src="assets/images/esfirraFrango.png" alt="Empadão de Frango dos Deuses" class="recipe-img">
+                <h3 class="recipe-title">Empadão de Frango dos Deuses</h3>
+                <p class="recipe-description">O empadão perfeito: recheio cremoso de frango envolto em uma massa amanteigada e desmanchando na boca.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://receitas.band.uol.com.br/receita/bolo-fofinho-de-chocolate-band-receitas-id-11795'">
+                <img src="assets/images/BoloFofo.png" alt="Bolo Fofinho de Chocolate" class="recipe-img">
+                <h3 class="recipe-title">Bolo Fofinho de Chocolate</h3>
+                <p class="recipe-description">Um bolo irresistível, super macio e com uma cobertura de chocolate que derrete na boca. Ideal para qualquer ocasião.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://receitas.globo.com/receitas-da-tv/e-de-casa/pao-delicia.ghtml'">
+                <img src="assets/images/PaoDelicia.png" alt="Pão Delícia" class="recipe-img">
+                <h3 class="recipe-title">Pão Delícia</h3>
+                <p class="recipe-description">Um pão macio e levemente adocicado, perfeito para rechear com queijo e presunto ou saborear puro.</p>
+              </div>
+              <div class="recipe-item" @click="window.location='https://www.tudogostoso.com.br/receita/143393-bolo-de-milho-de-lata-no-liquidificador.html'">
+                <img src="assets/images/BoloMilho.png" alt="Bolo de Milho" class="recipe-img">
+                <h3 class="recipe-title">Bolo de milho de lata no liquidificador</h3>
+                <p class="recipe-description">O bolo de milho de lata no liquidificador é uma verdadeira homenagem aos sabores tradicionais da culinária brasileira.</p>
+              </div>
+            </div>
+    </template>
+
+    <!-- <template x-if="conteudo === 'bife'">
+        <div class="recipe">
+            <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button>
+            <h2 class="recipe-title">Bife de Casca de Banana</h2>
+            <div class="ingredients">
+                <h3>Ingredientes:</h3>
+                <ul>
+                    <li>6 cascas de banana</li>
+                    <li>1 cebola picada</li>
+                    <li>1 colher de sopa de óleo</li>
+                    <li>Alho, sal e pimenta a gosto</li>
+                    <li>Farinha de trigo para empanar</li>
+                    <li>Óleo para fritar</li>
+                </ul>
+            </div>
+            <div class="preparation">
+                <h3>Modo de Preparo:</h3>
+                <p>Retire a parte interna das cascas de banana, cortando em tiras. Cozinhe as tiras por 10 minutos. Refogue a cebola e o alho no óleo, adicione as cascas de banana e tempere com sal e pimenta. Passe as cascas na farinha de trigo e frite até ficarem crocantes. Sirva como petisco.</p>
+            </div>
+        </div>
+    </template>
+    
+    <template x-if="conteudo === 'CoxinhaVegana'">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button>
+        <div class="recipe">
+            <h2 class="recipe-title">Massa de Coxinha</h2>
+            <div class="ingredients">
+                <h3>Ingredientes:</h3>
+                <ul>
+                    <li>500g de peito de frango desfiado</li>
+                    <li>1 colher de sopa de azeite</li>
+                    <li>1 xícara de caldo de frango</li>
+                    <li>1/2 xícara de farinha de trigo</li>
+                    <li>1/2 xícara de leite</li>
+                    <li>Sal e pimenta a gosto</li>
+                    <li>Farinha de rosca para empanar</li>
+                </ul>
+            </div>
+            <div class="preparation">
+                <h3>Modo de Preparo:</h3>
+                <p>Refogue o frango desfiado no azeite e acrescente o caldo de frango. Deixe secar um pouco. Em uma panela, misture a farinha e o leite, mexa até formar uma massa homogênea. Modele as coxinhas, recheie com o frango, passe na farinha de rosca e frite em óleo quente até dourar.</p>
+            </div>
+        </div>
+    </template>
+
+    <template x-if="conteudo === ''">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button> 
+    </template>
+    <template x-if="conteudo === ''">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button> 
+    </template>
+    <template x-if="conteudo === ''">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button> 
+    </template>
+    <template x-if="conteudo === ''">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button> 
+    </template>
+    <template x-if="conteudo === ''">
+        <button class="Voltar" @click="conteudo = 'receitas'">Voltar</button> 
+    </template> -->
+    
+  
+     <template x-if="conteudo === 'dicas'">
+      <div class="tips-list">
+        <h2>Dicas de Nutrição</h2>
+        <ul>
+          <li>Coma mais vegetais: Inclua vegetais variados nas suas refeições para fornecer fibras e nutrientes importantes.</li>
+          <li>Beba água suficiente: A hidratação é essencial para o bom funcionamento do corpo e para a digestão.</li>
+          <li>Evite alimentos ultraprocessados: Prefira alimentos frescos e naturais, ricos em nutrientes essenciais.</li>
+          <li>Consuma proteínas magras: Proteínas são fundamentais para a reparação muscular e para o crescimento saudável.</li>
+          <li>Pratique atividades físicas regularmente: A combinação de uma boa alimentação com exercícios melhora a saúde e o bem-estar.</li>
+          <li>Coma porções menores e mais frequentes: Distribuir as refeições ao longo do dia pode ajudar a manter o metabolismo ativo e evitar picos de fome.</li>
+          <li>Evite bebidas açucaradas: Prefira água, chás e sucos naturais sem adição de açúcar para manter um bom equilíbrio calórico.</li>
+          <li>Escolha grãos integrais: Opte por arroz integral, quinoa e aveia, que fornecem mais fibras e nutrientes do que os grãos refinados.</li>
+          <li>Coma mais frutas: As frutas são fontes de vitaminas, minerais e antioxidantes que ajudam a fortalecer o sistema imunológico.</li>
+          <li>Controle o consumo de sal: Reduzir o consumo de sal pode ajudar a evitar a retenção de líquidos e controlar a pressão arterial.</li>
+          <li>Inclua gorduras saudáveis: Gorduras de fontes como abacate, azeite de oliva e castanhas ajudam na absorção de vitaminas e no bom funcionamento do cérebro.</li>
+  
+        </ul>
       </div>
+      
+     </template>
+  
+     <template x-if="conteudo === 'noticias'">
+      <div class="news-list">
+        <h2>Notícias Nutricionais</h2>
+        <p>Clique para acessar</p>
+        <ul>
+          <li>
+            <a href="https://drconsulta.com/conteudo/frutas-que-fazem-bem-para-o-coracao/#:~:text=Por%20que%20o%20consumo%20de,e%20a%20regula%C3%A7%C3%A3o%20do%20metabolismo.">Pesquisa
+               revela benefícios do consumo diário de frutas para a saúde do coração</a>
+          </li>
+          <li>
+            <a href="https://www.terra.com.br/vida-e-estilo/saude/contra-o-cancer-dieta-e-nutricao,7d801234b2621cc8fb41c8584f83caf8qtfhheh3.html#:~:text=%22%2C%20comenta%20Grace.-,As%20dietas%20%C3%A0%20base%20de%20plantas%20tamb%C3%A9m%20s%C3%A3o%20ricas%20em,
+            tarde%20na%20vida%2C%20segundo%20estudos.">Estudo aponta que dietas ricas em vegetais podem reduzir o risco de câncer</a>
+          </li>
+          <li>
+            <a href="https://saude.es.gov.br/consumo-excessivo-de-acucar-pode-causar-grave#:~:text=%E2%80%9CEstudos%20recentes%20sugerem%20que%20o,desenvolvimento%E2%80%9D%2C%20revela%20a%20especialista.
+            ">Açúcar e seus impactos: especialistas alertam sobre os riscos do consumo excessivo</a>
+          </li>
+          <li>
+            <a href="https://clinicasersaude.com.br/uncategorized/maximizando-o-desempenho-com-nutricao-esportiva-inteligente/#:~:text=A%20nutri%C3%A7%C3%A3o%20esportiva%20n%C3%A3o%20%C3%A9,muscular%20e%20constru%C3%A7%C3%A3o%20de%20tecidos.
+            ">Nutrição esportiva: como a alimentação pode melhorar o desempenho físico</a>
+          </li>
+          <li>
+            <a href="https://diabetes.org.br/dieta-mediterranea/
+            ">Dieta mediterrânea é eficaz no controle do diabetes tipo 2, afirma estudo</a>
+          </li>
+          <li>
+            <a href="https://www.ecycle.com.br/alimentos-fermentados/#:~:text=Sim%2C%20%C3%A9%20absolutamente%20verdadeiro%20que,gases%2C%20al%C3%A9m%20de%20eliminar%20toxinas.
+            ">Alimentos fermentados: como eles ajudam a manter uma flora intestinal saudável</a>
+          </li>
+          <li>
+            <a href="https://laboratoriostaclara.com.br/2023/12/26/gorduras-insaturadas-auxiliam-na-prevencao-de-doencas-cardiovasculares/#:~:text=A%20rela%C3%A7%C3%A3o%20entre%20a%20ApoA%2DIV%20e%20alimentos%20ricos%20em,cora%C3%A7%C3%A3o%20e%20dos%20vasos%20sangu%C3%ADneos.
+            ">O papel das gorduras saudáveis na prevenção de doenças cardiovasculares</a>
+          </li>
+          <li>
+            <a href="https://www.fsfx.com.br/usisaude/qual-a-influencia-da-alimentacao-para-a-saude-mental/#:~:text=A%20alimenta%C3%A7%C3%A3o%20impacta%20diretamente%20em,associada%20%C3%A0%20depress%C3%A3o%20em%20adultos.
+            ">Impacto da alimentação na saúde mental: entenda a relação entre dieta e bem-estar</a>
+          </li>
+          <li>
+            <a href="https://dritalorachid.com.br/dieta-e-envelhecimento-biologico/#:~:text=Alimentos%20processados%20e%20ricos%20em,do%20risco%20de%20doen%C3%A7as%20cr%C3%B4nicas.
+            ">Como a alimentação pode influenciar o envelhecimento saudável</a>
+          </li>
+          <li>
+            <a href="https://www.terra.com.br/vida-e-estilo/saude/3-beneficios-de-consumir-proteina-de-origem-vegetal,0da3e42eb45f3338c47e72ea35a21b9d7698qx91.html#:~:text=Sustentabilidade%20ambiental,naturais%2C%20como%20%C3%A1gua%20e%20terra.
+            ">Os benefícios de consumir proteínas vegetais para a saúde e o meio ambiente</a>
+          </li>
+        </ul>
+      </div>
+     </template>
+  
+     <template x-if="conteudo === 'rotina'">
+      <div class="routine-list">
+        <h2>Rotinas Saudáveis</h2>
+        <ul>
+          <li>Comece o dia com um copo de água para hidratar o corpo após a noite de sono.</li>
+          <li>Faça 30 minutos de atividade física todos os dias, como caminhar, correr ou praticar yoga.</li>
+          <li>Inclua frutas e vegetais em todas as refeições para garantir uma boa ingestão de vitaminas e fibras.</li>
+          <li>Evite pular o café da manhã: um café da manhã nutritivo fornece energia para o dia.</li>
+          <li>Realize pausas ao longo do dia, especialmente se você trabalha sentado, para melhorar a circulação sanguínea.</li>
+          <li>Evite alimentos processados e prefira alimentos frescos e naturais sempre que possível.</li>
+          <li>Durma entre 7 a 8 horas por noite para garantir uma boa recuperação e bem-estar mental.</li>
+          <li>Pratique a atenção plena (mindfulness) para reduzir o estresse e melhorar o foco.</li>
+          <li>Alimente-se em intervalos regulares para manter os níveis de energia estáveis durante o dia.</li>
+          <li>Mantenha uma boa postura para evitar dores musculares e problemas na coluna vertebral.</li>
+          <li>Desconecte-se das telas por pelo menos 30 minutos antes de dormir para melhorar a qualidade do sono.</li>
+          <li>Inclua fontes de proteína magra em suas refeições, como peixes, ovos ou leguminosas.</li>
+          <li>Pratique a gratidão diariamente para manter uma mentalidade positiva e reduzir o estresse.</li>
+          <li>Evite bebidas açucaradas, optando por água, chá ou sucos naturais sem adição de açúcar.</li>
+          <li>Desafie-se a aprender algo novo a cada semana para manter o cérebro ativo e saudável.</li>
+        </ul>
+      </div>
+     </template>
+     <template x-if="conteudo === 'execicios'">
+  
+      <div class="exercise-list">
+        <h2>Exercícios para a Saúde</h2>
+        <ul>
+          <li><strong>Caminhada</strong> (30 minutos diários): Um exercício simples que melhora a circulação e fortalece o sistema cardiovascular.</li>
+          <li><strong>Corrida</strong> (20-30 minutos, 3 vezes por semana): Ajuda a aumentar a resistência e queima calorias, melhorando a saúde do coração.</li>
+          <li><strong>Agachamentos</strong> (3 séries de 15 repetições): Fortalece as pernas, glúteos e melhora a postura.</li>
+          <li><strong>Flexões</strong> (3 séries de 10 a 15 repetições): Trabalha os músculos do peito, braços e ombros.</li>
+          <li><strong>Prancha</strong> (segure por 30-60 segundos): Fortalece o core (abdômen, costas e quadril) e melhora a postura.</li>
+          <li><strong>Abdominais</strong> (3 séries de 20 repetições): Trabalham o core, ajudando na definição da musculatura abdominal.</li>
+          <li><strong>Pular corda</strong> (5-10 minutos diários): Um excelente exercício cardiovascular que melhora a resistência e queima calorias.</li>
+          <li><strong>Alongamento</strong> (5-10 minutos após o treino): Ajuda a melhorar a flexibilidade, reduzir tensões e evitar lesões.</li>
+          <li><strong>Subir escadas</strong> (10-15 minutos): Excelente exercício para tonificar as pernas e glúteos enquanto melhora a resistência cardiovascular.</li>
+          <li><strong>Yoga</strong> (15-30 minutos diários): Melhora a flexibilidade, equilíbrio e reduz o estresse.</li>
+          <li><strong>Burpees</strong> (3 séries de 10 a 12 repetições): Um exercício completo que trabalha o corpo todo, aumentando a força e resistência.</li>
+          <li><strong>Levantamento de peso</strong> (3 séries de 10 repetições com pesos adequados): Fortalece os músculos e melhora a densidade óssea.</li>
+          <li><strong>Escalada</strong> (10-15 minutos, se disponível): Ótimo exercício para o fortalecimento da parte superior do corpo e resistência.</li>
+          <li><strong>Circuito funcional</strong> (30 minutos): Um treino que combina diferentes tipos de exercícios para melhorar a resistência cardiovascular e a força muscular.</li>
+        </ul>
+      </div>
+      
+     </template>
+            </div>
+        </div>
+        <div class="apoio">
+            <!-- Tela explicativa sobre shakes -->
+            <div class="shakes-info" filter="blur(2px)" ;>
+                <p>
+                    O uso de <strong>shakes para o emagrecimento</strong> é um assunto <em>controverso</em>.
+                    Embora ajudem no processo de perda de peso, essas bebidas não são boas fontes nutricionais.
+                    Nesse sentido, é importante saber como fazer uso dos shakes de maneira saudável e sem oferecer
+                    prejuízos ao
+                    corpo.
+                </p>
+            </div>
+
+            <!-- Caixa de cálculo IMC -->
+            <div class="calcbox">
+                <h2>CALCULADORA <br>I.M.C.</h2>
+                <form>
+                    <div class="altura">
+                        <label for="altura">ALTURA</label>
+                        <input type="text" id="altura" name="altura" placeholder="Ex: 1.75">
+                    </div>
+                    <div class="peso">
+                        <label for="peso">PESO</label>
+                        <input type="text" id="peso" name="peso" placeholder="Ex: 70">
+                    </div>
+                    <button type="button" onclick="calcularIMC()">CALCULAR</button>
+                </form>
+            </div>
+        </div>
+        
+
     </div>
-
-    <!-- Adicione os parágrafos com imagens e separadores -->
-    <div class="text-container">
-      <!-- Primeiro parágrafo com imagem à esquerda -->
-      <div class="text-block">
-        <img src="assets/images/comida.jpg" alt="Imagem 1" class="text-image left">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-          facilisis.</p>
-      </div>
-      <hr class="text-divider">
-
-      <!-- Segundo parágrafo com imagem à direita -->
-      <div class="text-block">
-        <img src="assets/images/comida.jpg" alt="Imagem 2" class="text-image right">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-          facilisis.</p>
-      </div>
-      <hr class="text-divider">
-
-      <!-- Terceiro parágrafo com imagem à esquerda -->
-      <div class="text-block">
-        <img src="assets/images/comida.jpg" alt="Imagem 3" class="text-image left">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-          facilisis.</p>
-      </div>
-    </div>
-
-
-    <!-- Caixa de cálculo IMC -->
-    <div class="calcbox">
-      <h2>CALCULADORA <br>I.M.C.</h2>
-      <form>
-        <label for="altura">ALTURA</label>
-        <input type="text" id="altura" name="altura" placeholder="Ex: 1.75">
-        <label for="peso">PESO</label>
-        <input type="text" id="peso" name="peso" placeholder="Ex: 70">
-        <button type="button" onclick="calcularIMC()">CALCULAR</button>
-      </form>
-    </div>
-
-    <!-- Tela explicativa sobre shakes -->
-    <div class="shakes-info" filter="blur(2px)" ;>
-      <p>
-        O uso de <strong>shakes para o emagrecimento</strong> é um assunto <em>controverso</em>.
-        Embora ajudem no processo de perda de peso, essas bebidas não são boas fontes nutricionais.
-        Nesse sentido, é importante saber como fazer uso dos shakes de maneira saudável e sem oferecer prejuízos ao
-        corpo.
-      </p>
-    </div>
-
     <div class="nutrition-message">
-      <p>
-        As necessidades nutricionais são individuais!
-        <br>Então, a recomendação é deixar as dietas prontas e que estão “em alta” de lado,
-        <br>consultar um nutricionista para saber qual é o plano alimentar mais adequado.
-      </p>
-    </div>
-
-  </div>
-
+        <p>
+          As necessidades nutricionais são individuais!
+          <br>Então, a recomendação é deixar as dietas prontas e que estão “em alta” de lado,
+          <br>consultar um nutricionista para saber qual é o plano alimentar mais adequado.
+        </p>
+      </div>
+      
   <script>
-    function calcularIMC() {
+    function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
+function calcularIMC() {
       const altura = parseFloat(document.getElementById('altura').value);
       const peso = parseFloat(document.getElementById('peso').value);
       if (altura > 0 && peso > 0) {
@@ -122,8 +323,5 @@
       }
     }
   </script>
-
-
 </body>
-
 </html>
