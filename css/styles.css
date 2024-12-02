@@ -12,16 +12,63 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
+  overflow-y: scroll;
 }
 
-/* Contêiner principal que organiza os elementos na tela */
+.header-bar {
+  width: 100vw;
+  height: 6%;
+  background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 42px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Estilo do título na header-bar */
+.title {
+  width: 369px;
+  height: 78px;
+  font-family: 'HolenVintage.otf'; /* Fonte personalizada */
+  font-size: 85px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: #78b652;
+  text-shadow: 4px 4px 9px rgba(0, 0, 0, 1); /* Sombra externa */
+  font-style: italic;
+  margin-left: 106px;
+  margin-bottom: 35px;
+}
+.logo{
+  height: 50px;
+}
+
 .container {
   display: flex; /* Usa flexbox para organizar os filhos (sidebar e calcbox) */
   justify-content: space-between; /* Espaço igual entre os elementos */
   align-items: center; /* Centraliza verticalmente os elementos filhos */
-  height: 100%; /* Altura igual à altura da tela */
+  height: 80%; /* Altura igual à altura da tela */
   padding: 0 20px; /* Espaçamento horizontal opcional */
+  
+}
+
+/* Estilo da Sidebar (painel esquerdo) */
+.sidebar {
+  width: 22%; /* Largura fixa */
+  height: 95%; /* Altura fixa */
+  background-image: url('../assets/images/menubackground.png'); /* Fundo personalizado */
+  background-size: cover; /* Ajusta o fundo ao tamanho da sidebar */
+  background-position: center; /* Centraliza o fundo */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
+
 }
 
 /* Estilo do título na Sidebar */
@@ -67,9 +114,11 @@ body {
   margin-left: 30px; /* Move os itens do menu para a direita */
 }
 
-.menu a {
+.menu button {
+  background-color: transparent;
   text-decoration: none;
-  color: #ffffff;
+  border: none;
+  color: #ccc;
   font-size: 21.37px;
   font-weight: bold;
   display: block;
@@ -79,67 +128,125 @@ body {
 }
 
 /* Hover nos links */
-.menu a:hover {
+.menu button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Estilo da Sidebar (painel esquerdo) */
-.sidebar {
-  width: 229px; /* Largura fixa */
-  height: 679px; /* Altura fixa */
-  background-image: url('../assets/images/menubackground.png'); /* Fundo personalizado */
-  background-size: cover; /* Ajusta o fundo ao tamanho da sidebar */
-  background-position: center; /* Centraliza o fundo */
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
-  margin-left: 55px; /* Espaçamento lateral esquerdo */
-  margin-top: 208px; /* Centralização vertical usando margem superior */
-  margin-bottom: 137px; /* Centralização vertical usando margem inferior */
-  position: relative; /* Torna a sidebar o contêiner de referência para a logo */
+
+.main{
+  width: 50%;
+  height: 95%;
 }
 
-/* Estilo da logo na sidebar */
-.sidebar-logo {
-  position: absolute; /* Posiciona a logo de forma absoluta dentro da sidebar */
-  bottom: 20px; /* Distância da parte inferior da sidebar */
-  right: 20px;  /* Distância da parte direita da sidebar */
-  width: 52px; /* Largura da logo */
-  height: 52px; /* Altura proporcional */
+/* Estilo para o container de texto */
+.text-container {
+  width: 100%;
+  max-height: 100%; /* Limita a altura para 400px (ajuste conforme necessário) */
+  overflow-y: auto;  /* Adiciona scroll vertical */
+  overflow-x: hidden; /* Impede o scroll horizontal */
+  padding-right: 10px; /* Adiciona espaço para o scroll visual ficar separado */
+  padding: 20px;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
 }
 
-.sidebar-logo img {
-  width: 100%; /* Faz a logo ocupar 100% do contêiner */
-  height: auto; /* Mantém a proporção da imagem */
+/* Estilo dos blocos de texto */
+.text-block {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%; /* Garante que o bloco ocupe todo o espaço disponível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Centraliza horizontalmente */
+}
+.text-block-2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Garante que o bloco ocupe todo o espaço disponível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-direction: row-reverse;
 }
 
-/* Estilo do texto "@INFOTEC" na sidebar */
-.sidebar-info-text {
-  position: absolute; /* Posiciona o texto de forma absoluta dentro da sidebar */
-  bottom: 20px; /* Distância da parte inferior da sidebar */
-  left: 10px; /* Distância da parte esquerda da sidebar */
-  font-size: 14px; /* Tamanho da fonte */
-  color: #000; /* Cor preta */
-  font-weight: bold; /* Negrito */
+/* Estilo dos parágrafos */
+.paragrafo {
+  font-family: Arial, sans-serif; /* Define a fonte */
+  font-size: 12px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  line-height: 1.5; /* Altura da linha para melhor legibilidade */
+  color: #000; /* Cor do texto */
+  width: 414px; /* Largura fixa */
+  height: 89px; /* Altura fixa */
+  text-align: justify;
+  margin: 0; /* Remove margens externas */
 }
+
+/* Estilo das imagens */
+.text-image {
+  width: 80px; /* Largura fixa */
+  height: 100px; /* Altura fixa */
+}
+
+
+/* Estilo das linhas divisórias */
+.text-divider {
+  border: none;
+  width: 100%;
+  height: 2px;
+  background-color: #000; /* Cor preta */
+  margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+.apoio{
+  width: 22%;
+  height: 95%;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+/* Estilo da div shakes-info */
+.shakes-info {
+  width: 90%; /* Largura */
+  max-height: 45%; /* Altura */
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  color: #000; /* Cor do texto */
+  font-family: Arial, sans-serif; /* Fonte do texto */
+  font-size: 14px; /* Tamanho do texto */
+  font-weight: bold;
+  text-align: justify;
+  padding: 15px;
+  background-image: url('../assets/images/shake.png');
+}
+
 
 /* Estilo da caixa de cálculo (painel direito) */
 .calcbox {
-  width: 375px; /* Largura fixa */
-  height: 325px; /* Altura fixa */
+  width: 90%; /* Largura fixa */
+  height: 50%; /* Altura fixa */
   background-image: url('../assets/images/calcbackground.png'); /* Fundo personalizado */
   background-size: cover; /* Ajusta o fundo ao tamanho da caixa */
   background-position: center; /* Centraliza o fundo */
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra discreta */
-  margin-right: 30px; /* Espaçamento lateral direito */
-  margin-top: 443px; /* Centralização vertical usando margem superior */
-  margin-bottom: 256px; /* Centralização vertical usando margem inferior */
+  
+}
+
+.altura, .peso{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 .calcbox h2 {
-  font-size: 20px;
+  font-size: 15px;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
-  margin-top: 22px;
+  margin-top: 10px;
 }
 
 .calcbox form {
@@ -150,15 +257,16 @@ body {
 }
 
 .calcbox label {
-  font-size: 16px;
+  margin-left: 10px;
+  width: 30%;
+  font-size: 14px;
   color: white;
-  margin-bottom: 5px;
 }
 
 .calcbox input {
-  width: 80%;
+  width: 40%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
 }
 
@@ -177,160 +285,10 @@ body {
   color: white;
 }
 
-/* Barra decorativa no topo da página */
-.header-bar {
-  position: absolute;
-  width: 1440px;
-  height: 60px;
-  background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  z-index: 0; /* Coloca a barra atrás do conteúdo */
-  margin-top: 84px;
-  margin-bottom: 880px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 30px;
-}
-
-/* Estilo para o container de texto */
-.text-container {
-  width: 100%;
-  padding: 20px;
-  margin-top: 20px;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-}
-
-/* Estilo dos blocos de texto */
-.text-block {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%; /* Garante que o bloco ocupe todo o espaço disponível */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-}
-
-/* Estilo dos parágrafos */
-.text-block p {
-  font-family: Arial, sans-serif; /* Define a fonte */
-  font-size: 16px; /* Tamanho da fonte */
-  font-weight: bold; /* Texto em negrito */
-  line-height: 1.5; /* Altura da linha para melhor legibilidade */
-  color: #000; /* Cor do texto */
-  width: 414px; /* Largura fixa */
-  height: 89px; /* Altura fixa */
-  display: flex; /* Para centralizar texto verticalmente */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-  text-align: center; /* Justifica o texto */
-  margin: 0; /* Remove margens externas */
-}
-
-/* Estilo das imagens */
-.text-image {
-  width: 135px; /* Largura fixa */
-  height: 133px; /* Altura fixa */
-  margin-right: 15px; /* Espaçamento para imagens à esquerda */
-  margin-left: 15px; /* Espaçamento para imagens à direita */
-}
-
-/* Alinha as imagens à esquerda */
-.text-image.left {
-  order: 0;
-  margin-right: 77px;
-}
-
-/* Alinha as imagens à direita */
-.text-image.right {
-  order: 1;
-  margin-right: 0;
-  margin-left: 80px;
-}
-
-/* Estilo das linhas divisórias */
-.text-divider {
-  border: none;
-  width: 717px;
-  height: 2px;
-  background-color: #000; /* Cor preta */
-  margin: 20px auto; /* Centraliza horizontalmente */
-}
-
-@font-face {
-  font-family: 'HolenVintage';
-  src: url('../assets/fonts/HolenVintage.otf') format('truetype');
-}
-
-
-/* Estilo do título na header-bar */
-.title {
-  width: 369px;
-  height: 78px;
-  font-family: 'HolenVintage.otf'; /* Fonte personalizada */
-  font-size: 85px;
-  font-weight: bolder;
-  letter-spacing: 2px;
-  color: #78b652;
-  text-shadow: 4px 4px 9px rgba(0, 0, 0, 1); /* Sombra externa */
-  font-style: italic;
-  margin-left: 106px;
-  margin-bottom: 55px;
-}
-
-/* Estilo da div shakes-info */
-.shakes-info {
-  position: absolute;
-  top: 200px; /* Ajuste conforme necessário */
-  right: 50px; /* Ajuste conforme necessário */
-  width: 305px; /* Largura */
-  height: 190px; /* Altura */
-  z-index: 2; /* Garante que fique acima da calculadora */
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  color: #000; /* Cor do texto */
-  font-family: Arial, sans-serif; /* Fonte do texto */
-  font-size: 16px; /* Tamanho do texto */
-  font-weight: bold;
-  text-align: justify;
-  padding: 15px;
-  overflow: hidden; /* Garante que o conteúdo fique dentro da div */
-}
-
-/* Aplicando o desfoque ao fundo com pseudo-elemento */
-.shakes-info::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../assets/images/shake.png');
-  background-size: cover;
-  background-position: center;
-  filter: blur(5px); /* Nível de desfoque */
-  z-index: -1; /* Coloca o pseudo-elemento atrás do texto */
-}
-
-/* Texto separado */
-.shakes-info p {
-  position: relative; /* Garante que o texto fique acima do pseudo-elemento */
-  z-index: 1; /* Garante que o texto fique visível */
-  border-radius: 8px; /* Bordas arredondadas para o texto */
-  text-align: center;
-}
-
-/* Estilo para a elipse com o texto */
 .nutrition-message {
-  position: absolute;
-  bottom: 30px; /* Distância da parte inferior */
-  left: 50%;
-  transform: translateX(-50%); /* Centraliza horizontalmente */
   width: 80%; /* Largura relativa à página */
   max-width: 800px; /* Largura máxima */
-  height: auto;
-  padding: 20px 30px; /* Espaçamento interno */
+  padding: 15px 20px; /* Espaçamento interno */
   background-color: rgba(140, 227, 217, 0.7); /* Cor de fundo com transparência */
   border-radius: 50%; /* Forma de elipse */
   box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8); /* Sombra branca borrada */
@@ -340,5 +298,482 @@ body {
   font-weight: bold; /* Negrito */
   color: #000; /* Cor do texto */
   line-height: 1.5; /* Altura da linha */
+}
+
+
+.section {
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.recipe-item:hover{
+  background-color: #00bfbf;
+}
+
+.recipe-item {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+  padding: 15px;
+  text-align: center;
+}
+
+.recipe-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.recipe-title {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.recipe-description {
+  font-size: 1rem;
+}
+
+.menu-btn {
+  display: none;
+
+}
+
+/* Estilo básico para as receitas */
+.recipe {
+
+  border: 1px solid;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.ingredients,
+.preparation {
+  margin-bottom: 15px;
+}
+
+.recipe h3 {
+  font-size: 1.2em;
+}
+
+.recipe ul {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+
+.recipe p {
+  font-size: 1em;
+}
+
+.recipe button {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  background-color: #3c8e93;
+  font-size: 21.37px;
+  font-weight: bold;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.recipe button:hover {
+background-color: red;
+
+}
+
+/* Estilo para a lista de dicas */
+.tips-list {
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; /* Define a largura da div */
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da div */
+}
+
+/* Estilo para o título */
+.tips-list h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para a lista não ordenada */
+.tips-list ul {
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+}
+
+/* Estilo para os itens da lista */
+.tips-list li {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #fff; /* Cor de fundo para os itens */
+  border-radius: 6px; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra leve nos itens */
+  transition: transform 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Estilo ao passar o mouse sobre os itens da lista */
+.tips-list li:hover {
+  transform: scale(1.02); /* Leve aumento de tamanho */
+  background-color: #e0f7fa; /* Cor de fundo ao passar o mouse */
+}
+
+/* Adiciona um efeito de foco para acessibilidade */
+.tips-list li:focus {
+  outline: 2px solid #00796b; /* Cor do contorno ao focar */
+}
+
+/* Estilo para a lista de notícias */
+.news-list {
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; /* Define a largura da div */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da div */
+}
+
+/* Estilo para o título */
+.news-list h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para a lista não ordenada */
+.news-list ul {
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+}
+
+/* Estilo para os itens da lista */
+.news-list li {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #00bfbf; /* Cor de fundo para os itens */
+  border-radius: 6px; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra leve nos itens */
+  transition: transform 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Estilo para os links */
+.news-list li a {
+  text-decoration: none; /* Remove o sublinhado */
+ /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  display: block; /* Faz o link ocupar toda a área do item */
+}
+
+/* Estilo ao passar o mouse sobre os itens da lista */
+.news-list li:hover {
+  transform: scale(1.02); /* Leve aumento de tamanho */
+  background-color: #00bfbf; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo ao passar o mouse sobre os links */
+.news-list li a:hover {
+  color: #004d40; /* Cor do link ao passar o mouse */
+}
+
+/* Adiciona um efeito de foco para acessibilidade */
+.news-list li:focus {
+  outline: 2px solid #00796b; /* Cor do contorno ao focar */
+}
+
+.news-list li a:focus {
+  outline: 2px solid #004d40; /* Cor do contorno do link ao focar */
+}
+
+/* Estilo para a lista de rotinas saudáveis */
+.routine-list {
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; /* Define a largura da div */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da div */
+}
+
+/* Estilo para o título */
+.routine-list h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para a lista não ordenada */
+.routine-list ul {
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+}
+
+/* Estilo para os itens da lista */
+.routine-list li {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #fff; /* Cor de fundo para os itens */
+  border-radius: 6px; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra leve nos itens */
+  transition: transform 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Estilo para os links (caso deseje adicionar links na lista) */
+.routine-list li a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #00796b; /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  display: block; /* Faz o link ocupar toda a área do item */
+}
+
+/* Estilo ao passar o mouse sobre os itens da lista */
+.routine-list li:hover {
+  transform: scale(1.02); /* Leve aumento de tamanho */
+  background-color: #e0f7fa; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo ao passar o mouse sobre os links */
+.routine-list li a:hover {
+  color: #004d40; /* Cor do link ao passar o mouse */
+}
+
+/* Adiciona um efeito de foco para acessibilidade */
+.routine-list li:focus {
+  outline: 2px solid #00796b; /* Cor do contorno ao focar */
+}
+
+.routine-list li a:focus {
+  outline: 2px solid #004d40; /* Cor do contorno do link ao focar */
+}
+
+/* Estilo para a lista de exercícios */
+.exercise-list {
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; /* Define a largura da div */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da div */
+}
+
+/* Estilo para o título */
+.exercise-list h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para a lista não ordenada */
+.exercise-list ul {
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+}
+
+/* Estilo para os itens da lista */
+.exercise-list li {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #fff; /* Cor de fundo para os itens */
+  border-radius: 6px; /* Bordas arredondadas */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra leve nos itens */
+  transition: transform 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Estilo ao passar o mouse sobre os itens da lista */
+.exercise-list li:hover {
+  transform: scale(1.02); /* Leve aumento de tamanho */
+  background-color: #e0f7fa; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para os links (caso deseje adicionar links na lista) */
+.exercise-list li a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #00796b; /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  display: block; /* Faz o link ocupar toda a área do item */
+}
+
+/* Estilo ao passar o mouse sobre os links */
+.exercise-list li a:hover {
+  color: #004d40; /* Cor do link ao passar o mouse */
+}
+
+/* Adiciona um efeito de foco para acessibilidade */
+.exercise-list li:focus {
+  outline: 2px solid #00796b; /* Cor do contorno ao focar */
+}
+
+.exercise-list li a:focus {
+  outline: 2px solid #004d40; /* Cor do contorno do link ao focar */
+}
+
+
+
+@media (max-width:600px){
+	body {
+    background-repeat: repeat;
+    height: auto;
+    width: 100vw;
+  }
+  
+  .header-bar {
+    width: 100vw;
+    background: linear-gradient(90deg, rgba(0, 236, 134, 0.5) 0%, rgba(0, 134, 76, 0.3) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilo do título na header-bar */
+  .title {
+    height: 50px;
+
+  }
+  .logo{
+    height: 50px;
+  }
+  
+  .container {
+    display: flex; /* Usa flexbox para organizar os filhos (sidebar e calcbox) */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Estilo da Sidebar (painel esquerdo) */
+  .sidebar {
+    position: fixed;
+    top: 15%;
+    width: 95%; /* Largura fixa */
+    height: 100%; /* Altura fixa */
+    display: none; /* Oculta a sidebar em telas pequenas */
+  }
+
+.sidebar.active {
+    display: block;
+     /* Exibe a sidebar quando a classe "active" for adicionada */
+}
+
+/* Botão de menu */
+.menu-btn {
+    display: block;
+    position: fixed;
+    top: 10%;
+    left: 10px;
+    background-color: #00bfbf;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+  
+  .main{
+    width: 100%;
+    height: auto;
+  }
+
+  .text-block-2 p {
+    margin-right: 10px;
+  }
+  
+  /* Estilo dos parágrafos */
+  .paragrafo {
+    margin-left: 10px;
+  }
+  
+  
+  .apoio{
+    width: 95%;
+    height: auto;
+  }
+  
+  
+  /* Estilo da div shakes-info */
+  .shakes-info {
+    width: 100%; /* Largura */
+    margin-bottom: 25px;
+  }
+  
+  
+  /* Estilo da caixa de cálculo (painel direito) */
+  .calcbox {
+    width: 100%; /* Largura fixa */
+    height: 230px; /* Altura fixa */
+  
+  }
+  
+  
+  .nutrition-message {
+    width: 95%; /* Largura relativa à página */
+    margin: 40px 0;
+  }
+
+  .section-title {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .recipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .recipe-item {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .recipe-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-title {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .recipe-description {
+    font-size: 1rem;
+  }
 }
 
